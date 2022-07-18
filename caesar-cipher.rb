@@ -3,7 +3,7 @@ def cipher(my_string, shift_factor)
   # 65 - 90 for A-B
   # 97 - 122 for a-b
   ascii = my_string.chars.map{|c| c.ord}
-  shifted_string = ascii.map do |result|
+  shift = ascii.map do |result|
     if result.between?(65, 90)
       # logic for wrap around
       if shift_factor.positive?
@@ -22,7 +22,7 @@ def cipher(my_string, shift_factor)
     end
   end
 
-  shifted_string = shifted_string.map!{|a| a.chr}.join
+  shifted_string = shift.map!{|a| a.chr}.join
 end
 
 def get_phrase
